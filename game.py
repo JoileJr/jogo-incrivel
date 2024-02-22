@@ -18,24 +18,26 @@ while running:
     for event in pygame.event.get():
         if event.type == quit:
             running = False
-            
+
     # Obter as teclas pressionadas
     keys = pygame.key.get_pressed()
 
     # Atualizar a posição do jogador com base nas teclas pressionadas
     player_pos.x += (keys[pygame.K_RIGHT] - keys[pygame.K_LEFT]) * player_speed
     player_pos.y += (keys[pygame.K_DOWN] - keys[pygame.K_UP]) * player_speed
-    
+
     player_pos2.x += (keys[pygame.K_d] - keys[pygame.K_a]) * player_speed
     player_pos2.y += (keys[pygame.K_s] - keys[pygame.K_w]) * player_speed
 
-    # fill the screen with a color to wipe away anything from last frame
+    # Tema de fundo
     screen.fill("black")
-    
+
     # Desenhar o quadrado na tela
-    pygame.draw.rect(screen, (255, 0, 0), (player_pos.x, player_pos.y, player_size, player_size))
-    
-    pygame.draw.rect(screen, (255, 255, 255), (player_pos2.x,player_pos2.y, player_size, player_size))
+    pygame.draw.rect(screen, (255, 0, 0), (player_pos.x,
+                     player_pos.y, player_size, player_size))
+
+    pygame.draw.rect(screen, (255, 255, 255), (player_pos2.x,
+                     player_pos2.y, player_size, player_size))
 
     # Atualizar a tela
     pygame.display.flip()
